@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VJXW+jenGCk=",
+  "success": true,
+  "projectFilePath": "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\AnalyzeAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rohoz\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "C:\\Users\\rohoz\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
