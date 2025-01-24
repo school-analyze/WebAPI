@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\AnalyzeAPI.csproj": {}
+    "C:\\Users\\rohoz\\RiderProjects\\WebAPI\\AnalyzeAPI\\AnalyzeAPI.csproj": {}
   },
   "projects": {
-    "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\AnalyzeAPI.csproj": {
+    "C:\\Users\\rohoz\\RiderProjects\\WebAPI\\AnalyzeAPI\\AnalyzeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\AnalyzeAPI.csproj",
+        "projectUniqueName": "C:\\Users\\rohoz\\RiderProjects\\WebAPI\\AnalyzeAPI\\AnalyzeAPI.csproj",
         "projectName": "AnalyzeAPI",
-        "projectPath": "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\AnalyzeAPI.csproj",
+        "projectPath": "C:\\Users\\rohoz\\RiderProjects\\WebAPI\\AnalyzeAPI\\AnalyzeAPI.csproj",
         "packagesPath": "C:\\Users\\rohoz\\.nuget\\packages\\",
-        "outputPath": "D:\\RiderProjects\\AnalyzeAPI\\AnalyzeAPI\\obj\\",
+        "outputPath": "C:\\Users\\rohoz\\RiderProjects\\WebAPI\\AnalyzeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rohoz\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -36,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\rohoz\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
