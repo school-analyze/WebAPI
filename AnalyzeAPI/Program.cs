@@ -1,4 +1,5 @@
 using AnalyzeAPI.Data;
+using AnalyzeAPI.Services;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,9 @@ builder.Services.AddSwaggerGen(c =>
 var connectionString = builder.Configuration.GetConnectionString("StudentGrades") ?? "Data Source=StudentGrades.db";
 builder.Services.AddSqlite<AppDbContext>(connectionString);
 
+builder.Services.AddScoped<IGradeService, GradeService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,8 +32,5 @@ app.UseHttpsRedirection();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnalyzeAPI v1"));
-
-
-
 
 app.Run();
