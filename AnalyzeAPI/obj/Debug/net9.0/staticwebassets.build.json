@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "GGcI8Hb7ULkyPI8XVLQkbh2eQJlZZqEgKMKn3Kg1UpI=",
+  "Source": "AnalyzeAPI",
+  "BasePath": "_content/AnalyzeAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

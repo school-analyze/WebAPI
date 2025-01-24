@@ -1,3 +1,4 @@
+using AnalyzeAPI.Data;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "AnalyzeAPI", Version = "v1" });
 });
+
+var connectionString = builder.Configuration.GetConnectionString("StudentGrades") ?? "Data Source=StudentGrades.db";
+builder.Services.AddSqlite<AppDbContext>(connectionString);
 
 var app = builder.Build();
 
