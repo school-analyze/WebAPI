@@ -1,0 +1,65 @@
+### Create a new grade
+POST https://localhost:5221/grades
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "Math",
+  "grade": 9.5,
+  "percentageInfluence": 100,
+  "dateAdded": "2023-10-01"
+}
+
+### Get all grades
+GET https://localhost:5221/grades
+Accept: application/json
+
+### Get a specific grade by ID
+GET https://localhost:5221/grades/1
+Accept: application/json
+
+### Update a grade
+PUT https://localhost:5221/grades/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "Math",
+  "grade": 8.5,
+  "percentageInfluence": 90,
+  "dateAdded": "2023-10-01"
+}
+
+### Delete a grade
+DELETE https://localhost:5221/grades/1
+
+### Create a new user
+POST https://localhost:5221/users
+Content-Type: application/json
+
+{
+  "userName": "john_doe",
+  "passwordHash": "qwerty123",
+  "isAdmin": "false"
+}
+
+### Get all users
+GET https://localhost:5221/users
+Accept: application/json
+
+### Get a specific user by ID
+GET https://localhost:5221/users/1
+Accept: application/json
+
+### Update a user
+PUT https://localhost:5221/users/1
+Content-Type: application/json
+
+{
+  "userName": "john_doe_updated",
+  "email": "john.doe.updated@example.com",
+  "password": "newpassword123"
+}
+
+### Delete a user
+DELETE https://localhost:5221/users/1
