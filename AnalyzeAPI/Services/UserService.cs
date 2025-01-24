@@ -8,6 +8,11 @@ public class UserService(AppDbContext db) : IUserService
 {
     private readonly AppDbContext _db = db;
 
+    public async Task<List<UserModel>> GetAllUsers()
+    {
+        return await _db.Users.ToListAsync();
+    }
+
     public async Task<UserModel?> GetUserById(int id)
     {
         return await _db.Users.FindAsync(id);
@@ -20,14 +25,8 @@ public class UserService(AppDbContext db) : IUserService
         return user;
     }
 
-    public async Task DeleteUser(int id)
+    public async Task DeleteUser(UserModel user)
     {
-        var user = await _db.Users.FindAsync(id);
-        if (user == null)
-        {
-            throw new Exception("User not found");
-        }
-
         _db.Users.Remove(user);
         await _db.SaveChangesAsync();
     }

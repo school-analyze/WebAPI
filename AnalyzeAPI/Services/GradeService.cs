@@ -1,11 +1,17 @@
 ﻿using AnalyzeAPI.Data;
 using AnalyzeAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AnalyzeAPI.Services;
 
 public class GradeService(AppDbContext db) : IGradeService
 {
     private readonly AppDbContext _db = db;
+
+    public async Task<List<GradeModel>> GetAllGrades()
+    {
+        return await _db.Grades.ToListAsync();
+    }
 
     public async Task<GradeModel?> GetGradeById(int id)
     {
@@ -19,14 +25,8 @@ public class GradeService(AppDbContext db) : IGradeService
         return grade;
     }
 
-    public async Task DeleteGrade(int id)
+    public async Task DeleteGrade(GradeModel grade)
     {
-        var grade = await _db.Grades.FindAsync(id);
-        if (grade == null)
-        {
-            throw new Exception("Grade not found");
-        }
-        
         _db.Grades.Remove(grade);
         await _db.SaveChangesAsync();
     }
