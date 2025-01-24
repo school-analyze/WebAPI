@@ -12,8 +12,7 @@ public class GradeModel
     [ForeignKey(nameof(UserModel))]
     public int UserId { get; set; }
     [Required]
-    [ForeignKey(nameof(SubjectModel))]
-    public int SubjectId { get; set; }
+    public Subject Subject { get; set; }
     [Required]
     [Range(0.00, 10.00)]
     [Precision(4, 2)]
