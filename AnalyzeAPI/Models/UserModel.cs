@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace AnalyzeAPI.Models;
 
@@ -14,5 +15,5 @@ public class UserModel
     [Required]
     public bool IsAdmin { get; set; }
 
-    public ICollection<GradeModel> Grades { get; set; } = new List<GradeModel>();
+    public ICollection<GradeModel>? Grades { get; set; } = new List<GradeModel>();
 }
