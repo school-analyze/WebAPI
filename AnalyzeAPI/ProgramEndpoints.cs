@@ -30,6 +30,7 @@ public class ProgramEndpoints
 
         app.MapGet("/users", async (IUserService userService) => await userService.GetAllUsers()); 
         app.MapGet("/users/{id}", async (IUserService userService, int id) => await userService.GetUserById(id));
+        app.MapGet("/users/{id}/grades", async (IUserService userService, int id) => await userService.GetUserGrades(id));
         app.MapPost("/users/add", async (IUserService userService, UserModel user) => {
             var newUser = await userService.AddUser(user);
             return Results.Created($"/users/{newUser.Id}", newUser);

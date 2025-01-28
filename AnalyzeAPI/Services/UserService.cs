@@ -18,6 +18,11 @@ public class UserService(AppDbContext db) : IUserService
         return await _db.Users.FindAsync(id);
     }
 
+    public async Task<List<GradeModel>> GetUserGrades(int id)
+    {
+        return await _db.Grades.Where(g => g.UserId == id).ToListAsync(); 
+    }
+
     public async Task<UserModel> AddUser(UserModel user)
     {
         _db.Users.Add(user);
