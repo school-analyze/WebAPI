@@ -36,17 +36,17 @@ public class UserService(AppDbContext db) : IUserService
         await _db.SaveChangesAsync();
     }
 
-    public async Task<UserModel> UpdateUser(int id, UserModel user)
+    public async Task<UserModel?> UpdateUser(int id, UserModel user)
     {
-        /*var existingUser = await _db.Users.FindAsync(id);
+        var existingUser = await _db.Users.FindAsync(id);
         if (existingUser == null)
         {
-            throw new Exception("User not found");
+            return null;
         }
-
-        _db.Entry(user).State = EntityState.Modified;
+        existingUser.UserName = user.UserName;
+        existingUser.PasswordHash = user.PasswordHash;
+        
         await _db.SaveChangesAsync();
-        return user;*/
-        throw new NotImplementedException();
+        return existingUser;
     }
 }

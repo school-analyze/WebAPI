@@ -31,8 +31,18 @@ public class GradeService(AppDbContext db) : IGradeService
         await _db.SaveChangesAsync();
     }
 
-    public Task<GradeModel?> UpdateGrade(int id, GradeModel grade)
+    public async Task<GradeModel?> UpdateGrade(int id, GradeModel grade)
     {
-        throw new NotImplementedException();
+        var existingGrade = await _db.Grades.FindAsync(id);
+        if (existingGrade == null)
+        {
+            return null;
+        }
+        existingGrade.Grade = grade.Grade;
+        existingGrade.PercentageInfluence = grade.PercentageInfluence;
+        existingGrade.DateAdded = grade.DateAdded;
+        
+        await _db.SaveChangesAsync();
+        return existingGrade;
     }
 }

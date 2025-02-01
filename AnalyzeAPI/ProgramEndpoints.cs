@@ -24,9 +24,17 @@ public class ProgramEndpoints
             await gradeService.DeleteGrade(grade);
             return Results.NoContent();
         });
-        app.MapPut("/grades/update/{id}", (int id, int grade) => {
-            return id + " " + grade;
-        }); // Update mark
+        app.MapPut("/grades/update/{id}", async (IGradeService gradeService, int id, GradeModel newGrade) =>
+        {
+            var grade = await gradeService.GetGradeById(id);
+            if (grade == null)
+            {
+                return Results.NotFound();
+            }
+            
+            await gradeService.UpdateGrade(id, newGrade);
+            return Results.Ok(newGrade);
+        });
 
         app.MapGet("/users", async (IUserService userService) => await userService.GetAllUsers()); 
         app.MapGet("/users/{id}", async (IUserService userService, int id) => await userService.GetUserById(id));
@@ -45,8 +53,15 @@ public class ProgramEndpoints
             await userService.DeleteUser(user);
             return Results.NoContent();
         });
-        app.MapPut("/users/update/{id}", (int id, string name) => {
-            return id + " " + name;
-        }); // Update user
+        app.MapPut("/users/update/{id}", async (IUserService userService, int id, UserModel newUser) => {
+            var user = await userService.GetUserById(id);
+            if (user == null)
+            {
+                return Results.NotFound();
+            }
+            
+            await userService.UpdateUser(id, newUser);
+            return Results.Ok(newUser);
+        });
     }
 }
