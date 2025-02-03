@@ -1,5 +1,6 @@
 using AnalyzeAPI;
 using AnalyzeAPI.Data;
+using AnalyzeAPI.Endpoints;
 using AnalyzeAPI.Services;
 using Microsoft.OpenApi.Models;
 
@@ -34,6 +35,7 @@ app.UseHttpsRedirection();
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnalyzeAPI v1"));
 
-ProgramEndpoints.MapEndpoints(app);
+GradeEndpoints.MapEndpoints(app);
+UserEndpoints.MapEndpoints(app);
 
 app.Run();
