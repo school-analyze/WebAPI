@@ -4,12 +4,11 @@ using AnalyzeAPI.Endpoints;
 using AnalyzeAPI.Models;
 using AnalyzeAPI.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -23,9 +22,11 @@ builder.Services.AddIdentity<UserModel, IdentityRole<int>>(options =>
         options.Password.RequireDigit = false;
         options.Password.RequireLowercase = false;
         options.Password.RequireUppercase = false;
+        options.Password.RequireNonAlphanumeric = false;
     })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IGradeService, GradeService>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -41,9 +42,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapIdentityApi<UserModel>();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnalyzeAPI v1"));
+app.MapSwagger().RequireAuthorization();
 
 GradeEndpoints.MapEndpoints(app);
 UserEndpoints.MapEndpoints(app);

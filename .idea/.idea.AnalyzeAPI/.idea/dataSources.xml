@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="StudentGrades" uuid="73337d25-f54f-45d7-9b01-a7faa53af0a7">
-      <driver-ref>f08e5afd-94a0-4397-9b31-5ab67df0e9bc</driver-ref>
+      <driver-ref>cb10c490-f79f-4127-a4d6-25f6c14c567c</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\rohoz\RiderProjects\WebAPI\AnalyzeAPI\StudentGrades.db</jdbc-url>
